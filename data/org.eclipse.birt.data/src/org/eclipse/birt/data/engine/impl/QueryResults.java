@@ -672,6 +672,10 @@ public class QueryResults implements IQueryResults, IQueryService
 	{
 		return name;
 	}
-	
+
+	public DataEngineSession getSession()
+	{
+		return this.session;
+	}
 }
 

@@ -239,7 +239,7 @@ public class RunTask extends AbstractRunTask implements IRunTask
 			writer.saveParamters( inputValues );
 
 			executionContext.openDataEngine( );
-
+			
 			synchronized(this)
 			{
 				if (!executionContext.isCanceled( ))
@@ -325,6 +325,7 @@ public class RunTask extends AbstractRunTask implements IRunTask
 
 			writer.savePersistentObjects( executionContext.getGlobalBeans( ) );
 			writer.finish( );
+			writer.close( );
 
 			// notify that the document has been finished
 			if ( pageHandler != null && !executionContext.isCanceled( ) )

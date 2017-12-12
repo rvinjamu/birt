@@ -975,6 +975,11 @@ public class ResultIterator implements IResultIterator
 			return new ColumnBindingMetaData( this.resultService.getQueryDefn( ),
 					odiResult == null ? null : odiResult.getResultClass( ) );
 		}
+		catch(NullPointerException ne)
+		{
+			logger.log( Level.SEVERE, ne.getMessage( ), ne );
+			throw DataException.wrap( new BirtException( ne.getMessage( ) ) );
+		}
 		finally
 		{
 			logger.logp( Level.FINEST,

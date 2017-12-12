@@ -446,6 +446,7 @@ public class EngineIRReaderImpl implements IOConstants
 				{
 					TableBandDesign groupHeader = (TableBandDesign) readDesign( in );
 					tableGroup.setHeader( groupHeader );
+					groupHeader.setGroup( tableGroup );
 				}
 				// read footer
 				if ( IOUtil.readBool( in ) )

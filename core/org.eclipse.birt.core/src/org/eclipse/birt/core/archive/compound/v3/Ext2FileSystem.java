@@ -130,7 +130,8 @@ public class Ext2FileSystem
 		if ( "rwt".equals( mode ) )
 		{
 			readOnly = false;
-			removeOnExit = true;
+		//	removeOnExit = true;
+			removeOnExit = false;
 			createFileSystem( );
 			return;
 		}

@@ -416,7 +416,7 @@ public class RDLoad
 	 * @return
 	 * @throws DataException
 	 */
-	private IBaseQueryDefinition loadQueryDefn( InputStream inputStream ) throws DataException
+	public IBaseQueryDefinition loadQueryDefn( InputStream inputStream ) throws DataException
 	{
 		String bundleVersion = this.context.getBundleVersion( );
 		IBaseQueryDefinition queryDefn = QueryDefnIOUtil.loadQueryDefn( inputStream, version, bundleVersion );
