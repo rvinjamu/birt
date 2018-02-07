@@ -11,6 +11,8 @@
 
 package org.eclipse.birt.data.engine.executor;
 
+import java.util.List;
+
 /**
  * <code>ResultFieldMetadata</code> contains metadata about a 
  * column that is needed by <code>ResultClass</code>.
@@ -32,6 +34,7 @@ public class ResultFieldMetadata
 	private boolean accessible = true;
 	private float m_compressThrehold;
 	private int m_customPosition;
+	private List<String> labels;
 	
 	public ResultFieldMetadata( int driverPosition, String name, 
 						 		String label, Class dataType,
@@ -65,6 +68,18 @@ public class ResultFieldMetadata
 		this.m_analysisColumn = analysisColumn;
 		this.m_indexColumn = indexColumn;
 		this.m_compressedColumn = compressedColumn;
+	}
+	
+	public ResultFieldMetadata( int driverPosition, String name, 
+			List<String> labels,String alias, Class dataType,
+			String nativeTypeName, boolean isCustom, int analysisType, String analysisColumn, boolean indexColumn, boolean compressedColumn )
+	{
+		this( driverPosition, name, alias, dataType, nativeTypeName, isCustom );
+		this.m_analysisType = analysisType;
+		this.m_analysisColumn = analysisColumn;
+		this.m_indexColumn = indexColumn;
+		this.m_compressedColumn = compressedColumn;
+		this.labels = labels;
 	}
 	
 	public int getAnalysisType( )
@@ -227,5 +242,13 @@ public class ResultFieldMetadata
     public void setCustomPosition( int pos )
     {
     	this.m_customPosition = pos;
+    }
+    
+    public List<String> getLabels(){
+    	return this.labels;
+    }
+    
+    public void setLabels(List<String> labels){
+    	this.labels = labels;
     }
 }
